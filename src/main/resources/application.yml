@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: local
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: validate
+
+  batch:
+    job:
+      names: ${job.name:NONE}
+
+  main:
+    allow-bean-definition-overriding: true
+
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+
+
+# external-datasource.properties
+external-datasource:
+  driver-class-name: org.h2.Driver
+  url: jdbc:h2:tcp://localhost/~/h2-db/copy_data_first
+  username: sa
+  password:
