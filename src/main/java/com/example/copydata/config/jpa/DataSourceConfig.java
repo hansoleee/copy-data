@@ -1,5 +1,7 @@
 package com.example.copydata.config.jpa;
 
+import com.example.copydata.config.jpa.properties.CustomDataSourceProperties;
+import com.example.copydata.config.jpa.properties.ExternalDataSourceProperties;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,18 +20,18 @@ import javax.sql.DataSource;
 @RequiredArgsConstructor
 public class DataSourceConfig {
 
-    private final ExternalDataSourceConfig externalDataSourceConfig;
-    private final CustomDataSourceConfig customDataSourceConfig;
+    private final ExternalDataSourceProperties externalDataSourceProperties;
+    private final CustomDataSourceProperties customDataSourceProperties;
 
     @Bean(name = "externalDataSource")
     public DataSource externalDataSource() {
-        return getDataSource(externalDataSourceConfig.getDriverClassName(), externalDataSourceConfig.getUrl(), externalDataSourceConfig.getUsername(), externalDataSourceConfig.getPassword());
+        return getDataSource(externalDataSourceProperties.getDriverClassName(), externalDataSourceProperties.getUrl(), externalDataSourceProperties.getUsername(), externalDataSourceProperties.getPassword());
     }
 
     @Primary
     @Bean(name = "customDataSource")
     public DataSource customDataSource() {
-        return getDataSource(customDataSourceConfig.getDriverClassName(), customDataSourceConfig.getUrl(), customDataSourceConfig.getUsername(), customDataSourceConfig.getPassword());
+        return getDataSource(customDataSourceProperties.getDriverClassName(), customDataSourceProperties.getUrl(), customDataSourceProperties.getUsername(), customDataSourceProperties.getPassword());
     }
 
     private DataSource getDataSource(String driverClassName,

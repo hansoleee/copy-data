@@ -1,9 +1,6 @@
 package com.example.copydata.domain;
 
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -14,12 +11,14 @@ import java.time.LocalDateTime;
 @Embeddable
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@ToString
 @EqualsAndHashCode(of = {"registDate", "id"})
 public class MemberId implements Serializable {
 
+    @Column(name = "REGIST_DATE")
     private LocalDateTime registDate;
 
-    @Column(name = "member_id")
+    @Column(name = "MEMBER_ID")
     private BigDecimal id;
 
     public MemberId(LocalDateTime registDate, BigDecimal id) {

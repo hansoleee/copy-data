@@ -44,7 +44,7 @@ public class DatabaseConfigUtils {
     private static Properties jpaProperties() {
         Properties properties = new Properties();
 
-        properties.setProperty("hibernate.show_sql", "false");
+        properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("hibernate.format_sql", "false");
         properties.setProperty("hibernate.use_sql_comments", "false");
         properties.setProperty("hibernate.globally_quoted_identifiers", "true");

@@ -1,4 +1,4 @@
-package com.example.copydata.config.jpa;
+package com.example.copydata.config.jpa.properties;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -8,16 +8,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * second-datasource:
- *   driver-class-name: org.h2.Driver
- *   url: jdbc:h2:tcp://localhost/~/h2-db/copy_data_second
- *   username: sa
- *   password:
+ * driver-class-name: org.h2.Driver
+ * url: jdbc:h2:tcp://localhost/~/h2-db/copy_data_second
+ * username: sa
+ * password:
  */
 @Component
 @PropertySource("classpath:application-local.yml")
 @Getter
 @ToString
-public class CustomDataSourceConfig {
+public class CustomDataSourceProperties {
 
     @Value("${custom-datasource.driver-class-name}")
     private String driverClassName;
